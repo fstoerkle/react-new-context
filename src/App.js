@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import logo from './logo.svg';
 import './App.css';
+import SupportedLanguages from './SupportedLanguages';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <img src={logo} className="App-logo" alt="Netlight" />
+        <SupportedLanguages />
       </div>
     );
   }
+
+  getChildContext() {
+    return {
+      config: {
+        languages: [
+          'English',
+          'Deutsch',
+          'Svenska',
+          'Norsk',
+          'Bairisch'
+        ]
+      }
+    };
+  }
 }
+
+App.childContextTypes = {
+  config: PropTypes.obj
+};
 
 export default App;
