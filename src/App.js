@@ -11,11 +11,23 @@ class App extends Component {
     return (
       <div className="App">
         <img src={logo} className="App-logo" alt="Netlight" />
-        <ConfigContextContainer>
+        <ConfigContextContainer config={this.getConfig()}>
           <SupportedLanguages />
         </ConfigContextContainer>
       </div>
     );
+  }
+
+  getConfig() {
+    return {
+      languages: [
+        'English',
+        'Deutsch',
+        'Svenska',
+        'Norsk',
+        'Bairisch'
+      ]
+    };
   }
 }
 

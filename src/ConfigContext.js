@@ -3,17 +3,7 @@ import React from 'react';
 
 const { Provider, Consumer } = createReactContext();
 
-const config = {
-    languages: [
-      'English',
-      'Deutsch',
-      'Svenska',
-      'Norsk',
-      'Bairisch'
-    ]
-  };
-
-export default function ConfigContextContainer({ children }) {
+export default function ConfigContextContainer({ children, config }) {
     return (
         <Provider value={config}>
             {children}
